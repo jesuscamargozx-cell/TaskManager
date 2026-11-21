@@ -1,4 +1,5 @@
 
+
 # TaskManager – Gestor de Tareas
 
 ## 1. Descripción del proyecto
@@ -85,3 +86,7 @@ La base de datos se crea automáticamente cuando se inicia la aplicación.
 | Id | INTEGER | Identificador único |
 | Nombre | TEXT | Nombre de la tarea |
 | Descripcion | TEXT
+=======
+# TaskManager
+gestor de tareas
+
