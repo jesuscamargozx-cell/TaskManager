@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TaskManager.MainWindow"
+        Title="TaskManager - Gestor de tareas"
+        Width="900" Height="680"
+        MinWidth="720" MinHeight="560"
+        WindowStartupLocation="CenterScreen">
+  <ScrollViewer>
+    <StackPanel Margin="24">
+      <TextBlock Text="GESTOR DE TAREAS" FontSize="26" FontWeight="Bold" />
+      <TextBlock Text="Organiza tus actividades y lleva el control de su progreso."
+                 Margin="0,4,0,20" Foreground="Gray" />
+
+      <Border Padding="18" CornerRadius="8" BorderThickness="1" BorderBrush="#808080">
+        <StackPanel>
+          <TextBlock Text="Datos de la tarea" FontSize="18" FontWeight="SemiBold"
+                     Margin="0,0,0,12" />
+
+          <TextBlock Text="Nombre" />
+          <TextBox x:Name="NombreBox" Watermark="Escribe el nombre de la tarea"
+                   MaxLength="100" Margin="0,4,0,12" />
+
+          <TextBlock Text="Descripción" />
+          <TextBox x:Name="DescripcionBox" Watermark="Describe brevemente la tarea"
+                   AcceptsReturn="True" TextWrapping="Wrap" MinHeight="70"
+                   Margin="0,4,0,12" />
+
+          <Grid ColumnDefinitions="*,*" Margin="0,0,0,12">
+            <StackPanel Grid.Column="0" Margin="0,0,8,0">
+              <TextBlock Text="Prioridad" />
+              <ComboBox x:Name="PrioridadBox" SelectedIndex="1" Margin="0,4,0,0">
+                <ComboBoxItem Content="Baja" />
+                <ComboBoxItem Content="Media" />
+                <ComboBoxItem Content="Alta" />
+              </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="8,0,0,0">
+              <TextBlock Text="Estado" />
+              <ComboBox x:Name="EstadoBox" SelectedIndex="0" Margin="0,4,0,0">
+                <ComboBoxItem Content="Pendiente" />
+                <ComboBoxItem Content="En progreso" />
+                <ComboBoxItem Content="Completada" />
+              </ComboBox>
+            </StackPanel>
+          </Grid>
+
+          <WrapPanel>
+            <Button Content="Guardar tarea" Click="Guardar_Click" Margin="0,0,8,8" />
+            <Button Content="Actualizar seleccionada" Click="Actualizar_Click"
+                    Margin="0,0,8,8" />
+            <Button Content="Eliminar seleccionada" Click="Eliminar_Click"
+                    Margin="0,0,8,8" />
+            <Button Content="Limpiar" Click="Limpiar_Click" Margin="0,0,8,8" />
+          </WrapPanel>
+          <TextBlock x:Name="MensajeText" Text="Listo." TextWrapping="Wrap"
+                     Margin="0,8,0,0" />
+        </StackPanel>
+      </Border>
+
+      <Grid ColumnDefinitions="*,Auto" Margin="0,20,0,8">
+        <TextBlock Text="Tareas registradas" FontSize="18" FontWeight="SemiBold"
+                   VerticalAlignment="Center" />
+        <Button Grid.Column="1" Content="Recargar lista" Click="Recargar_Click" />
+      </Grid>
+
+      <ListBox x:Name="TareasList" MinHeight="180"
+               SelectionChanged="TareasList_SelectionChanged" />
+
+      <TextBlock Text="Selecciona una tarea de la lista para editarla o eliminarla."
+                 Foreground="Gray" Margin="0,8,0,0" />
+    </StackPanel>
+  </ScrollViewer>
+</Window>
